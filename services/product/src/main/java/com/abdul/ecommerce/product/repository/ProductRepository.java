@@ -19,5 +19,8 @@ public interface ProductRepository {
 
     void deleteProduct(Integer productId);
 
-    List<ProductPurchaseResponse> purchaseProducts(List<ProductPurchaseResponse> productPurchaseResponses);
+
+    List<ProductResponse> findAllByIdInOrderById(List<Integer> products);
+
+    void saveProducts(List<ProductResponse> storedProducts);
 }

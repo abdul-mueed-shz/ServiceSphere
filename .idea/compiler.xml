@@ -9,8 +9,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="product" />
         <module name="toolkit" />
-        <module name="configServer" />
         <module name="discovery" />
+        <module name="configServer" />
         <module name="customer" />
       </profile>
     </annotationProcessing>

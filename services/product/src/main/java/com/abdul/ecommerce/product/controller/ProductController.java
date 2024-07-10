@@ -4,7 +4,7 @@ import com.abdul.ecommerce.product.dto.ProductPurchaseRequest;
 import com.abdul.ecommerce.product.dto.ProductRequest;
 import com.abdul.ecommerce.product.info.ProductResponse;
 import com.abdul.ecommerce.product.info.ProductPurchaseResponse;
-import com.abdul.ecommerce.product.mapper.ProductDtoMapper;
+import com.abdul.ecommerce.product.mapper.ProductMapper;
 import com.abdul.ecommerce.product.service.ProductService;
 import jakarta.validation.Valid;
 import java.util.List;
@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
 
     private final ProductService productService;
-    private final ProductDtoMapper productDtoMapper;
+    private final ProductMapper productMapper;
 
     @PostMapping
     public ResponseEntity<Integer> createProduct(@RequestBody @Valid ProductRequest productRequest) {

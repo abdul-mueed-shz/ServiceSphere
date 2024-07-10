@@ -4,7 +4,8 @@ import com.abdul.ecommerce.product.dto.ProductRequest;
 import com.abdul.ecommerce.product.entity.Product;
 import com.abdul.ecommerce.product.info.ProductPurchaseResponse;
 import com.abdul.ecommerce.product.info.ProductResponse;
-import com.abdul.ecommerce.product.mapper.ProductDtoMapper;
+import com.abdul.ecommerce.product.mapper.ProductCustomMapper;
+import com.abdul.ecommerce.product.mapper.ProductMapper;
 import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
@@ -15,29 +16,30 @@ import org.springframework.stereotype.Repository;
 public class ProductRepositoryImpl implements ProductRepository {
 
     private final ProductJpaRepository productJpaRepository;
-    private final ProductDtoMapper productDtoMapper;
+    private final ProductMapper productMapper;
+    private final ProductCustomMapper productCustomMapper;
 
     @Override
     public Integer createProduct(ProductRequest productRequest) {
-        Product product = productJpaRepository.save(productDtoMapper.productRequestToProduct(productRequest));
+        Product product = productJpaRepository.save(productMapper.productRequestToProduct(productRequest));
         return product.getId();
     }
 
     @Override
     public void updateProduct(ProductRequest productRequest) {
-        productJpaRepository.save(productDtoMapper.productRequestToProduct(productRequest));
+        productJpaRepository.save(productMapper.productRequestToProduct(productRequest));
     }
 
     @Override
     public List<ProductResponse> getProducts() {
         List<Product>products = productJpaRepository.findAll();
-        return productDtoMapper.productsToProductPurchaseResponse(products);
+        return productCustomMapper.productsToProductResponses(products);
     }
 
     @Override
     public ProductResponse getProduct(Integer productId) {
         Optional<Product> productOptional = productJpaRepository.findById(productId);
-        return productOptional.map(productDtoMapper::productToProductResponse).orElse(null);
+        return productOptional.map(productCustomMapper::productToProductResponse).orElse(null);
     }
 
     @Override
@@ -51,7 +53,14 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public List<ProductPurchaseResponse> purchaseProducts(List<ProductPurchaseResponse> productPurchaseResponses) {
-        return null;
+    public List<ProductResponse> findAllByIdInOrderById(List<Integer> products) {
+        return productCustomMapper
+                .productsToProductResponses(productJpaRepository.findAllByIdInOrderById(products));
     }
+    @Override
+    public void saveProducts(List<ProductResponse> productResponses){
+         productJpaRepository.saveAll(productMapper.productResponsesToProduct((productResponses)));
+    }
+
+
 }
