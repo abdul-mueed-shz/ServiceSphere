@@ -17,6 +17,7 @@
 	<modules>
 		<module>../customer</module>
 		<module>../toolkit</module>
+		<module>../product</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
