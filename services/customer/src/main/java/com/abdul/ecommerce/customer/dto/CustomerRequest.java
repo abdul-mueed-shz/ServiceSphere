@@ -1,6 +1,6 @@
 package com.abdul.ecommerce.customer.dto;
 
-import com.abdul.ecommerce.customer.document.Address;
+import com.abdul.toolkit.customer.entity.Address;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 

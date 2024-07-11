@@ -1,4 +1,4 @@
-package com.abdul.ecommerce.customer.document;
+package com.abdul.toolkit.customer.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

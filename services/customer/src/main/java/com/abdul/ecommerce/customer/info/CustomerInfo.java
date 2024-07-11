@@ -1,6 +1,6 @@
 package com.abdul.ecommerce.customer.info;
 
-import com.abdul.ecommerce.customer.document.Address;
+import com.abdul.toolkit.customer.entity.Address;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
