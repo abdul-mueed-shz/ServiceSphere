@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/services/order/order.iml" filepath="$PROJECT_DIR$/services/order/order.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/springboot-ecom-microserves.iml" filepath="$PROJECT_DIR$/.idea/springboot-ecom-microserves.iml" />
     </modules>
   </component>

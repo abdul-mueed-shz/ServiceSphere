@@ -1,1 +1,3 @@
-spring.application.name=toolkit
+spring:
+  application:
+    name: toolkit

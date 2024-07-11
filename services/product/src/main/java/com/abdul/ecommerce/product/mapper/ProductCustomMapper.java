@@ -1,6 +1,5 @@
 package com.abdul.ecommerce.product.mapper;
 
-import com.abdul.ecommerce.category.entity.Category;
 import com.abdul.ecommerce.category.info.CategoryResponse;
 import com.abdul.ecommerce.product.entity.Product;
 import com.abdul.ecommerce.product.info.ProductResponse;
