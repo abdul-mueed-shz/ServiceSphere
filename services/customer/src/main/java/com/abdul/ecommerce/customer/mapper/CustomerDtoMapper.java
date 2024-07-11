@@ -1,7 +1,7 @@
 package com.abdul.ecommerce.customer.mapper;
 
 import com.abdul.ecommerce.customer.dto.CustomerRequest;
-import com.abdul.ecommerce.customer.info.CustomerInfo;
+import com.abdul.toolkit.customer.info.CustomerInfo;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

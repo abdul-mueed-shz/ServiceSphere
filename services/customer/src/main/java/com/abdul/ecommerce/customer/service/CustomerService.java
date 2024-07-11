@@ -1,6 +1,6 @@
 package com.abdul.ecommerce.customer.service;
 
-import com.abdul.ecommerce.customer.info.CustomerInfo;
+import com.abdul.toolkit.customer.info.CustomerInfo;
 import com.abdul.ecommerce.customer.repository.CustomerRepository;
 import com.abdul.toolkit.common.exception.ApplicationException;
 import java.util.List;

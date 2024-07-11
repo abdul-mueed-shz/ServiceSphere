@@ -1,6 +1,6 @@
 package com.abdul.ecommerce.customer.repository;
 
-import com.abdul.ecommerce.customer.info.CustomerInfo;
+import com.abdul.toolkit.customer.info.CustomerInfo;
 import java.util.List;
 
 public interface CustomerRepository {

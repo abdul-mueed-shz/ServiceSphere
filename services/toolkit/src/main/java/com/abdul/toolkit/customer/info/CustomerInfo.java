@@ -1,4 +1,4 @@
-package com.abdul.ecommerce.customer.info;
+package com.abdul.toolkit.customer.info;
 
 import com.abdul.toolkit.customer.entity.Address;
 import lombok.AllArgsConstructor;
