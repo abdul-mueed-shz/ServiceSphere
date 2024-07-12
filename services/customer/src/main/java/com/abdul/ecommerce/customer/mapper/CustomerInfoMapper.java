@@ -1,7 +1,7 @@
 package com.abdul.ecommerce.customer.mapper;
 
 import com.abdul.ecommerce.customer.document.Customer;
-import com.abdul.toolkit.customer.info.CustomerInfo;
+import com.abdul.toolkit.utils.customer.info.CustomerInfo;
 import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;

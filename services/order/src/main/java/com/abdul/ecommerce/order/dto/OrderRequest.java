@@ -1,6 +1,7 @@
 package com.abdul.ecommerce.order.dto;
 
 import com.abdul.toolkit.common.enums.PaymentMethod;
+import com.abdul.toolkit.utils.product.dto.ProductPurchaseRequest;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -24,7 +25,7 @@ public record OrderRequest(
         String customerId,
 
         @NotEmpty(message = "At least one product is required for purchase")
-        List<ProductRequest> products
+        List<ProductPurchaseRequest> products
 
 ) {
 

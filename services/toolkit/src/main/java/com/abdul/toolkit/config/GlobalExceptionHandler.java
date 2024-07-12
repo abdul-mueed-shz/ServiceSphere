@@ -2,6 +2,7 @@ package com.abdul.toolkit.config;
 
 import com.abdul.toolkit.common.exception.ApplicationException;
 import com.abdul.toolkit.common.info.ErrorInfo;
+import feign.FeignException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -32,7 +33,7 @@ public class GlobalExceptionHandler {
         body.put(TIMESTAMP, ex.getTimestamp());
         body.put(STATUS, ex.getStatus());
         body.put(MESSAGE, ex.getMessage());
-        body.put(ERROR, ex.getError());
+        body.put(ERROR, HttpStatus.valueOf(ex.getStatus()));
         return new ResponseEntity<>(body, HttpStatus.valueOf(ex.getStatus()));
     }
 

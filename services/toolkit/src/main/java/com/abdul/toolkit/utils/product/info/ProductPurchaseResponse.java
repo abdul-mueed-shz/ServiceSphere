@@ -1,4 +1,4 @@
-package com.abdul.ecommerce.product.info;
+package com.abdul.toolkit.utils.product.info;
 
 import java.math.BigDecimal;
 

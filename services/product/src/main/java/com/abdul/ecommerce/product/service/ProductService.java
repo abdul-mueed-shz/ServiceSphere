@@ -1,9 +1,9 @@
 package com.abdul.ecommerce.product.service;
 
-import com.abdul.ecommerce.product.dto.ProductPurchaseRequest;
+import com.abdul.toolkit.utils.product.dto.ProductPurchaseRequest;
 import com.abdul.ecommerce.product.dto.ProductRequest;
 import com.abdul.ecommerce.product.info.ProductResponse;
-import com.abdul.ecommerce.product.info.ProductPurchaseResponse;
+import com.abdul.toolkit.utils.product.info.ProductPurchaseResponse;
 import com.abdul.ecommerce.product.mapper.ProductPurchaseMapper;
 import com.abdul.ecommerce.product.repository.ProductJpaRepository;
 import com.abdul.ecommerce.product.repository.ProductRepository;

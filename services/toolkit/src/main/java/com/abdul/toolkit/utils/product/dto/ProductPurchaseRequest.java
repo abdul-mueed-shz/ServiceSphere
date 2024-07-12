@@ -1,4 +1,4 @@
-package com.abdul.ecommerce.product.dto;
+package com.abdul.toolkit.utils.product.dto;
 
 import jakarta.validation.constraints.NotNull;
 

@@ -1,7 +1,6 @@
 package com.abdul.ecommerce.product.repository;
 
 import com.abdul.ecommerce.product.dto.ProductRequest;
-import com.abdul.ecommerce.product.info.ProductPurchaseResponse;
 import com.abdul.ecommerce.product.info.ProductResponse;
 import java.util.List;
 

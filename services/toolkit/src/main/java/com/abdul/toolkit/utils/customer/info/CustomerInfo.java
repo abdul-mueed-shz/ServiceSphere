@@ -1,6 +1,6 @@
-package com.abdul.toolkit.customer.info;
+package com.abdul.toolkit.utils.customer.info;
 
-import com.abdul.toolkit.customer.entity.Address;
+import com.abdul.toolkit.utils.customer.entity.Address;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

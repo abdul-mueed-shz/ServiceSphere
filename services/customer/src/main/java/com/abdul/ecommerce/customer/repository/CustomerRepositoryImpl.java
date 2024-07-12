@@ -1,7 +1,7 @@
 package com.abdul.ecommerce.customer.repository;
 
 import com.abdul.ecommerce.customer.document.Customer;
-import com.abdul.toolkit.customer.info.CustomerInfo;
+import com.abdul.toolkit.utils.customer.info.CustomerInfo;
 import com.abdul.ecommerce.customer.mapper.CustomerInfoMapper;
 import java.util.List;
 import java.util.Optional;

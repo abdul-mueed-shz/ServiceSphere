@@ -1,7 +1,7 @@
 package com.abdul.ecommerce.customer.controller;
 
 import com.abdul.ecommerce.customer.dto.CustomerRequest;
-import com.abdul.toolkit.customer.info.CustomerInfo;
+import com.abdul.toolkit.utils.customer.info.CustomerInfo;
 import com.abdul.ecommerce.customer.mapper.CustomerDtoMapper;
 import com.abdul.ecommerce.customer.service.CustomerService;
 import jakarta.validation.Valid;

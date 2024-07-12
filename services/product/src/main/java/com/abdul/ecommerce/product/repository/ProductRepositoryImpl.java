@@ -2,7 +2,6 @@ package com.abdul.ecommerce.product.repository;
 
 import com.abdul.ecommerce.product.dto.ProductRequest;
 import com.abdul.ecommerce.product.entity.Product;
-import com.abdul.ecommerce.product.info.ProductPurchaseResponse;
 import com.abdul.ecommerce.product.info.ProductResponse;
 import com.abdul.ecommerce.product.mapper.ProductCustomMapper;
 import com.abdul.ecommerce.product.mapper.ProductMapper;

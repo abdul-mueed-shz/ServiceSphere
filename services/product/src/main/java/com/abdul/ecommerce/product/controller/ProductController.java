@@ -1,9 +1,9 @@
 package com.abdul.ecommerce.product.controller;
 
-import com.abdul.ecommerce.product.dto.ProductPurchaseRequest;
+import com.abdul.toolkit.utils.product.dto.ProductPurchaseRequest;
 import com.abdul.ecommerce.product.dto.ProductRequest;
 import com.abdul.ecommerce.product.info.ProductResponse;
-import com.abdul.ecommerce.product.info.ProductPurchaseResponse;
+import com.abdul.toolkit.utils.product.info.ProductPurchaseResponse;
 import com.abdul.ecommerce.product.mapper.ProductMapper;
 import com.abdul.ecommerce.product.service.ProductService;
 import jakarta.validation.Valid;
@@ -33,7 +33,7 @@ public class ProductController {
                 .createProduct(productRequest));
     }
 
-    @PostMapping("purchase")
+    @PostMapping("/purchase")
     public ResponseEntity<List<ProductPurchaseResponse>>
                          purchaseProduct(@RequestBody @Valid List<ProductPurchaseRequest> productPurchaseRequest) {
         return ResponseEntity.ok(productService
