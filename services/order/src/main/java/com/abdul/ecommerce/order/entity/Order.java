@@ -52,6 +52,6 @@ public class Order {
     private LocalDateTime createdOn;
 
     @LastModifiedDate
-    @Column(insertable = false, nullable = false)
+    @Column(nullable = false)
     private LocalDateTime updatedOn;
 }
