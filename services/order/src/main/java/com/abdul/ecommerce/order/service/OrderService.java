@@ -2,7 +2,8 @@ package com.abdul.ecommerce.order.service;
 
 import com.abdul.ecommerce.order.dto.OrderRequest;
 import com.abdul.ecommerce.order.repository.OrderRepositoryImpl;
-import com.abdul.toolkit.customer.service.CustomerService;
+import com.abdul.toolkit.customer.info.CustomerInfo;
+import com.abdul.toolkit.customer.service.CustomerFeignService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class OrderService {
     private final OrderRepositoryImpl orderRepository;
-    private final CustomerService customerService;
+    private final CustomerFeignService customerFeignService;
 
     public Integer createOrder(OrderRequest orderRequest) {
         /*
@@ -21,6 +22,8 @@ public class OrderService {
         * 5- Start Payment Process
         * 6- Send Order Confirmation -> notification-msg (kafka)
         */
+        CustomerInfo customerInfo = customerFeignService.getCustomer(orderRequest.customerId());
+
         return orderRequest.id();
     }
 }

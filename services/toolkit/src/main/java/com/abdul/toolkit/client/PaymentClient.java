@@ -1,9 +1,9 @@
-package com.abdul.toolkit.payment.client;
+package com.abdul.toolkit.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 
 @FeignClient(
-        name = "customer-service",
+        name = "payment-client",
         url = "${application.config.payment-url}"
 )
 public interface PaymentClient {

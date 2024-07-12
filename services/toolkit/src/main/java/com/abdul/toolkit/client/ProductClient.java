@@ -1,9 +1,9 @@
-package com.abdul.toolkit.product.client;
+package com.abdul.toolkit.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 
 @FeignClient(
-        name = "customer-service",
+        name = "product-client",
         url = "${application.config.product-url}"
 )
 public interface ProductClient {
