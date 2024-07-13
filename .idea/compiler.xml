@@ -20,6 +20,7 @@
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar" />
         </processorPath>
         <module name="product" />
+        <module name="payment" />
         <module name="toolkit" />
         <module name="order" />
         <module name="customer" />
@@ -31,6 +32,7 @@
       <module name="configServer" options="-parameters" />
       <module name="discovery" options="-parameters" />
       <module name="order" options="" />
+      <module name="payment" options="" />
     </option>
   </component>
 </project>
