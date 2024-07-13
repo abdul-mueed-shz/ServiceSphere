@@ -1,6 +1,6 @@
 package com.abdul.ecommerce.order.info;
 
-import com.abdul.ecommerce.orderline.info.OrderLineResponse;
+import com.abdul.ecommerce.orderline.info.OrderLineInfo;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,5 +14,5 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @SuperBuilder
 public class OrderDetailResponse extends OrderResponse{
-    List<OrderLineResponse> orderLines;
+    List<OrderLineInfo> orderLines;
 }

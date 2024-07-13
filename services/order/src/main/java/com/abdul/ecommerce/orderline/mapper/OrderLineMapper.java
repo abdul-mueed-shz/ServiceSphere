@@ -4,6 +4,7 @@ import com.abdul.ecommerce.order.entity.Order;
 import com.abdul.ecommerce.order.info.OrderResponse;
 import com.abdul.ecommerce.orderline.dto.OrderLineRequest;
 import com.abdul.ecommerce.orderline.entity.OrderLine;
+import com.abdul.ecommerce.orderline.info.OrderLineInfo;
 import com.abdul.ecommerce.orderline.info.OrderLineResponse;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,5 +69,20 @@ public class OrderLineMapper {
             );
         }
         return orderLineResponses;
+    }
+
+    public List<OrderLineInfo> mapToOrderLineInfo(List<OrderLine> orderLines) {
+        List<OrderLineInfo> orderLineInfos = new ArrayList<>();
+        for (OrderLine orderLine : orderLines) {
+            orderLineInfos.add(
+                    OrderLineInfo.builder()
+                            .id(orderLine.getId())
+                            .productId(orderLine.getProductId())
+                            .productName(orderLine.getProductName())
+                            .quantity(orderLine.getQuantity())
+                            .build()
+            );
+        }
+        return orderLineInfos;
     }
 }

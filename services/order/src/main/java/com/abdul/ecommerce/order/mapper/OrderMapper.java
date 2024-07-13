@@ -52,7 +52,7 @@ public class OrderMapper {
                 .paymentMethod(order.getPaymentMethod())
                 .customerId(order.getCustomerId())
                 .orderLines(
-                        orderLineMapper.mapToOrderLineResponse(orderLines)
+                        orderLineMapper.mapToOrderLineInfo(orderLines)
                 )
                 .build();
     }
