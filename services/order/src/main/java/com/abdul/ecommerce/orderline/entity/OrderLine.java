@@ -33,6 +33,7 @@ public class OrderLine {
     private Order order;
 
     private Integer productId;
+    private String productName;
     private Double quantity;
 
 }

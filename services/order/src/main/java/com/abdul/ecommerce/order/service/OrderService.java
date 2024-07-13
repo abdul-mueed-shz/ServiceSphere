@@ -15,8 +15,11 @@ import com.abdul.toolkit.utils.product.dto.ProductPurchaseRequest;
 import com.abdul.toolkit.utils.product.info.ProductPurchaseResponse;
 import com.abdul.toolkit.utils.product.service.ProductRestTemplateService;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -42,14 +45,19 @@ public class OrderService {
         CustomerInfo customerInfo = customerFeignService.getCustomer(orderRequest.customerId());
         List<ProductPurchaseResponse> productPurchaseResponses = productRestTemplateService
                 .purchaseProducts(orderRequest.products());
+        Map<Integer, ProductPurchaseResponse> productPurchaseResponsesMap = productPurchaseResponses.stream()
+                .collect(Collectors.toMap(ProductPurchaseResponse::productId, response -> response));
         Integer orderId = orderRepository.save(orderRequest);
         List<OrderLineRequest> orderLineRequestList = new ArrayList<>();
         for (ProductPurchaseRequest productPurchaseRequest: orderRequest.products()) {
+            ProductPurchaseResponse productPurchaseResponse =
+                    productPurchaseResponsesMap.get(productPurchaseRequest.productId());
             orderLineRequestList.add(
                     OrderLineRequest.builder()
                             .orderId(orderId)
-                            .productId(productPurchaseRequest.productId())
-                            .quantity(productPurchaseRequest.productQuantity())
+                            .quantity(productPurchaseResponse.quantity())
+                            .productId(productPurchaseResponse.productId())
+                            .productName(productPurchaseResponse.productName())
                             .build()
             );
         }

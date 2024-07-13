@@ -25,6 +25,7 @@ public class OrderLineMapper {
                                             .build()
                             )
                             .productId(orderLineRequest.getProductId())
+                            .productName(orderLineRequest.getProductName())
                             .quantity(orderLineRequest.getQuantity())
                             .build()
             );
@@ -40,6 +41,7 @@ public class OrderLineMapper {
                                 .build()
                 )
                 .productId(orderLineRequest.getProductId())
+                .productName(orderLineRequest.getProductName())
                 .quantity(orderLineRequest.getQuantity())
                 .build();
     }
@@ -60,6 +62,7 @@ public class OrderLineMapper {
                                             .build()
                             )
                             .productId(orderLine.getProductId())
+                            .productName(orderLine.getProductName())
                             .quantity(orderLine.getQuantity())
                             .build()
             );

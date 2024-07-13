@@ -15,5 +15,6 @@ public class OrderLineRequest {
     private Integer id;
     private Integer orderId;
     private Integer productId;
+    private String productName;
     private Double quantity;
 }

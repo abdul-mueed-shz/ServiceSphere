@@ -17,5 +17,6 @@ public class OrderLineResponse {
     private Integer id;
     private OrderResponse order;
     private Integer productId;
+    private String productName;
     private Double quantity;
 }
