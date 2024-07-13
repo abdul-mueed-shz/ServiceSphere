@@ -1,7 +1,7 @@
 package com.abdul.ecommerce.order.info;
 
-import com.abdul.toolkit.common.enums.PaymentMethod;
-import java.math.BigDecimal;
+import com.abdul.ecommerce.orderline.info.OrderLineResponse;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,10 +13,6 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class OrderResponse {
-    Integer orderId;
-    String customerId;
-    String reference;
-    BigDecimal amount;
-    PaymentMethod paymentMethod;
+public class OrderDetailResponse extends OrderResponse{
+    List<OrderLineResponse> orderLines;
 }

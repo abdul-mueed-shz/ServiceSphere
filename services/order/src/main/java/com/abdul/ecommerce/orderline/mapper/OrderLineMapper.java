@@ -1,8 +1,10 @@
 package com.abdul.ecommerce.orderline.mapper;
 
 import com.abdul.ecommerce.order.entity.Order;
+import com.abdul.ecommerce.order.info.OrderResponse;
 import com.abdul.ecommerce.orderline.dto.OrderLineRequest;
 import com.abdul.ecommerce.orderline.entity.OrderLine;
+import com.abdul.ecommerce.orderline.info.OrderLineResponse;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -28,5 +30,40 @@ public class OrderLineMapper {
             );
         }
         return orderLines;
+    }
+
+    public OrderLine mapToOrderLine(OrderLineRequest orderLineRequest) {
+        return OrderLine.builder()
+                .order(
+                        Order.builder()
+                                .id(orderLineRequest.getOrderId())
+                                .build()
+                )
+                .productId(orderLineRequest.getProductId())
+                .quantity(orderLineRequest.getQuantity())
+                .build();
+    }
+
+    public List<OrderLineResponse> mapToOrderLineResponse(List<OrderLine> orderLines) {
+        List<OrderLineResponse> orderLineResponses = new ArrayList<>();
+        for (OrderLine orderLine : orderLines) {
+            orderLineResponses.add(
+                    OrderLineResponse.builder()
+                            .id(orderLine.getId())
+                            .order(
+                                    OrderResponse.builder()
+                                            .orderId(orderLine.getOrder().getId())
+                                            .paymentMethod(orderLine.getOrder().getPaymentMethod())
+                                            .amount(orderLine.getOrder().getTotalAmount())
+                                            .customerId(orderLine.getOrder().getCustomerId())
+                                            .reference(orderLine.getOrder().getReference())
+                                            .build()
+                            )
+                            .productId(orderLine.getProductId())
+                            .quantity(orderLine.getQuantity())
+                            .build()
+            );
+        }
+        return orderLineResponses;
     }
 }

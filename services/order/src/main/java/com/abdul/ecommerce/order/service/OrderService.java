@@ -71,6 +71,10 @@ public class OrderService {
     }
 
     public OrderResponse getOrder(Integer orderId) {
+        Boolean orderExists = orderRepository.orderExists(orderId);
+        if (Boolean.FALSE.equals(orderExists)) {
+            throw new ApplicationException("Order with orderId %d does not exist".formatted(orderId));
+        }
         return orderRepository.getOrder(orderId);
     }
 }
