@@ -1,7 +1,7 @@
 package com.abdul.ecommerce.payment.mapper;
 
 import com.abdul.ecommerce.payment.document.Payment;
-import com.abdul.ecommerce.payment.dto.PaymentRequest;
+import com.abdul.toolkit.utils.customer.dto.PaymentRequest;
 import org.springframework.stereotype.Component;
 
 @Component

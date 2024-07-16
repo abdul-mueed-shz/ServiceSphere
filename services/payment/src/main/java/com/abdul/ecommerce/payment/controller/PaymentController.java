@@ -1,6 +1,6 @@
 package com.abdul.ecommerce.payment.controller;
 
-import com.abdul.ecommerce.payment.dto.PaymentRequest;
+import com.abdul.toolkit.utils.customer.dto.PaymentRequest;
 import com.abdul.ecommerce.payment.service.PaymentService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

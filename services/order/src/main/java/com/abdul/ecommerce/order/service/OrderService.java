@@ -2,23 +2,23 @@ package com.abdul.ecommerce.order.service;
 
 import com.abdul.ecommerce.order.dto.OrderConfirmation;
 import com.abdul.ecommerce.order.dto.OrderRequest;
-import com.abdul.ecommerce.order.entity.Order;
 import com.abdul.ecommerce.order.info.OrderResponse;
 import com.abdul.ecommerce.order.messaging.producer.OrderProducer;
 import com.abdul.ecommerce.order.repository.OrderRepositoryImpl;
 import com.abdul.ecommerce.orderline.dto.OrderLineRequest;
 import com.abdul.ecommerce.orderline.service.OrderLineService;
 import com.abdul.toolkit.common.exception.ApplicationException;
+import com.abdul.toolkit.utils.customer.dto.PaymentRequest;
 import com.abdul.toolkit.utils.customer.info.CustomerInfo;
+import com.abdul.toolkit.utils.customer.mapper.CustomerMapper;
 import com.abdul.toolkit.utils.customer.service.CustomerFeignService;
+import com.abdul.toolkit.utils.payment.service.PaymentFeignService;
 import com.abdul.toolkit.utils.product.dto.ProductPurchaseRequest;
 import com.abdul.toolkit.utils.product.info.ProductPurchaseResponse;
 import com.abdul.toolkit.utils.product.service.ProductRestTemplateService;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -32,6 +32,8 @@ public class OrderService {
     private final ProductRestTemplateService productRestTemplateService;
     private final OrderLineService orderLineService;
     private final OrderProducer orderProducer;
+    private final PaymentFeignService paymentFeignService;
+    private final CustomerMapper customerMapper;
 
     public Integer createOrder(OrderRequest orderRequest) {
         /*
@@ -49,7 +51,7 @@ public class OrderService {
                 .collect(Collectors.toMap(ProductPurchaseResponse::productId, response -> response));
         Integer orderId = orderRepository.save(orderRequest);
         List<OrderLineRequest> orderLineRequestList = new ArrayList<>();
-        for (ProductPurchaseRequest productPurchaseRequest: orderRequest.products()) {
+        for (ProductPurchaseRequest productPurchaseRequest : orderRequest.products()) {
             ProductPurchaseResponse productPurchaseResponse =
                     productPurchaseResponsesMap.get(productPurchaseRequest.productId());
             orderLineRequestList.add(
@@ -62,7 +64,15 @@ public class OrderService {
             );
         }
         orderLineService.saveAll(orderLineRequestList);
-        orderProducer.sendOderConfirmation(
+        PaymentRequest paymentRequest = new PaymentRequest(
+                null,
+                orderId,
+                orderRequest.amount(),
+                orderRequest.paymentMethod(),
+                customerMapper.mapCustomerInfoToCustomerDto(customerInfo)
+        );
+        String paymentId = paymentFeignService.createPayment(paymentRequest);
+        orderProducer.sendOrderConfirmation(
                 new OrderConfirmation(
                         orderRequest.reference(),
                         orderRequest.amount(),

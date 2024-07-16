@@ -5,8 +5,8 @@ import com.abdul.toolkit.utils.customer.info.CustomerInfo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-@RequiredArgsConstructor
 @Component
+@RequiredArgsConstructor
 public class CustomerFeignService {
     private final CustomerClient customerClient;
 

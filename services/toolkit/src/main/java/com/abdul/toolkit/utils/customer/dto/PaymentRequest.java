@@ -1,4 +1,4 @@
-package com.abdul.ecommerce.payment.dto;
+package com.abdul.toolkit.utils.customer.dto;
 
 import com.abdul.toolkit.common.enums.PaymentMethod;
 import jakarta.validation.constraints.NotNull;

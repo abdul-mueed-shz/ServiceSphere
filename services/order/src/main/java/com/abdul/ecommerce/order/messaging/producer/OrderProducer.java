@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class OrderProducer {
     private final KafkaTemplate<String, OrderConfirmation> kafkaTemplate;
 
-    public void sendOderConfirmation(OrderConfirmation orderConfirmation) {
+    public void sendOrderConfirmation(OrderConfirmation orderConfirmation) {
         log.info("Sending order confirmation: {}", orderConfirmation);
         Message<OrderConfirmation> message = MessageBuilder
                 .withPayload(orderConfirmation)
