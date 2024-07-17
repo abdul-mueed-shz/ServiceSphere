@@ -14,31 +14,8 @@ spring:
       port: 27017
       authentication-database: admin
       database: payment
-  kafka:
-    producer:
-      bootstrap-servers: localhost:9092
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-      properties:
-        spring.json.trusted.packages: '*'
-        spring.json.type.mapping: paymentConfirmation:com.abdul.ecommerce.payment.dto.PaymentConfirmation,orderConfirmation:com.abdul.ecommerce.order.dto.OrderConfirmation
 application:
   config:
     customer-url: http://localhost:8222/api/v1/customers
     product-url: http://localhost:8222/api/v1/products
     payment-url: http://localhost:8060/api/v1/payments
-mail:
-  host: localhost
-  port: 1025
-  username: abdul
-  password: root
-  properties:
-    mail:
-      smtp:
-        trust: "*"
-      auth: true
-      starttls:
-        enabled: true
-      connectiontimeout: 5000
-      timeout: 3000
-      writetimeout: 5000

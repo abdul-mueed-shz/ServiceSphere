@@ -14,15 +14,21 @@ spring:
       port: 27017
       authentication-database: admin
       database: payment
-  kafka:
-    consumer:
-      bootstrap-servers: localhost:9092
-      group-id: paymentGroup,orderGroup
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringSerializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonSerializer
-      properties:
-        spring.json.type.mapping: paymentConfirmation:com.abdul.ecommerce.payment.dto.PaymentConfirmation
+  mail:
+    host: localhost
+    port: 1025
+    username: abdul
+    password: root
+    properties:
+      mail:
+        smtp:
+          trust: "*"
+        auth: true
+        starttls:
+          enabled: true
+        connectiontimeout: 5000
+        timeout: 3000
+        writetimeout: 5000
 
 application:
   config:

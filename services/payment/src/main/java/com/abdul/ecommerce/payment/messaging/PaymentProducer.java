@@ -10,8 +10,8 @@ import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 @Slf4j
+@RequiredArgsConstructor
 public class PaymentProducer {
     private final KafkaTemplate<String, PaymentConfirmation> kafkaTemplate;
 
