@@ -21,8 +21,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class OrderService {
@@ -72,6 +74,7 @@ public class OrderService {
                 customerMapper.mapCustomerInfoToCustomerDto(customerInfo)
         );
         String paymentId = paymentFeignService.createPayment(paymentRequest);
+        log.info("Payment for order Id: {} created with payment Id: {}", orderId, paymentId);
         orderProducer.sendOrderConfirmation(
                 new OrderConfirmation(
                         orderRequest.reference(),

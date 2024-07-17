@@ -19,6 +19,7 @@
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.5.Final/mapstruct-processor-1.5.5.Final.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar" />
         </processorPath>
+        <module name="notification" />
         <module name="product" />
         <module name="payment" />
         <module name="toolkit" />
@@ -31,6 +32,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="configServer" options="-parameters" />
       <module name="discovery" options="-parameters" />
+      <module name="notification" options="" />
       <module name="order" options="" />
       <module name="payment" options="" />
     </option>
