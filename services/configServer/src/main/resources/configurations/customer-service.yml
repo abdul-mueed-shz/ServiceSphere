@@ -14,3 +14,9 @@ spring:
       port: 27017
       authentication-database: admin
       database: customer
+
+application:
+  config:
+    customer-url: http://localhost:8222/api/v1/customers
+    product-url: http://localhost:8222/api/v1/products
+    payment-url: http://localhost:8222/api/v1/payments

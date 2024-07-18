@@ -53,8 +53,9 @@ public class KafkaConfig {
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class.getName());
         props.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
-        props.put("spring.json.type.mapping", "paymentConfirmation:com.abdul.ecommerce.payment.dto.PaymentConfirmation,"
-                + "orderConfirmation:com.abdul.ecommerce.order.dto.OrderConfirmation");
+        props.put("spring.json.type.mapping",
+                "paymentConfirmation:com.abdul.ecommerce.notification.dto.PaymentConfirmation,"
+                + "orderConfirmation:com.abdul.ecommerce.notification.dto.OrderConfirmation");
         return props;
     }
 }
