@@ -1,7 +1,7 @@
 package com.abdul.ecommerce.order.config;
 
 import com.abdul.ecommerce.order.dto.OrderConfirmation;
-import com.fasterxml.jackson.databind.JsonSerializer;
+import org.springframework.kafka.support.serializer.JsonSerializer;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.kafka.clients.admin.NewTopic;
