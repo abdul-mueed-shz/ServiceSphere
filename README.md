@@ -1,6 +1,6 @@
-# E-Commerce Application
+# ServiceSphere
 
-Welcome to the E-Commerce Application repository. This project is built using Spring Boot and follows a microservices architecture with a monorepo structure. It includes various components such as a discovery server, config server, Spring Cloud Gateway, and uses Keycloak for authentication and authorization.
+Welcome to the E-Commerce Application ServiceSphere's repository. This project is built using Spring Boot and follows a microservices architecture with a monorepo structure. It includes various components such as a discovery server, config server, Spring Cloud Gateway, and uses Keycloak for authentication and authorization.
 
 ## Table of Contents
 - [Overview](#overview)
