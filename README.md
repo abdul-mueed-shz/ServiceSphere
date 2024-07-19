@@ -32,6 +32,7 @@ git clone https://github.com/your-username/e-commerce-app.git
 ```
 
 ## Services
+```bash
 cd e-commerce-app
 
 cd discovery-server
