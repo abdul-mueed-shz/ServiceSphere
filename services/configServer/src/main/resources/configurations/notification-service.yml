@@ -13,7 +13,7 @@ spring:
       host: localhost
       port: 27017
       authentication-database: admin
-      database: payment
+      database: notification
   kafka:
     bootstrap-servers: localhost:9092
   mail:
