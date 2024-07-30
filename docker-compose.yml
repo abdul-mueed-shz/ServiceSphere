@@ -1,32 +1,55 @@
 services:
-  zookeeper:
-    image: confluentinc/cp-zookeeper:latest
-    container_name: zookeeper
+  kafka-ui:
+    image: provectuslabs/kafka-ui
+    ports:
+      - 8080:8080
+    expose:
+      - 8080
+    container_name: kafka-ui
     environment:
-      ZOOKEEPER_SERVER_ID: 1
-      ZOOKEEPER_CLIENT_PORT: 2181
-      ZOOKEEPER_TICK_TIME: 2000
+      - KAFKA_CLUSTERS_0_NAME=local
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=127.0.0.1:9092
+    deploy:
+      resources:
+        limits:
+          memory: 786M
+        reservations:
+          memory: 786M
+  #    networks:
+  #      - microservices-net
+
+  zookeeper:
+    image: wurstmeister/zookeeper
     ports:
       - 2181:2181
-    networks:
-      - microservices-net
+    container_name: zookeeper
+    deploy:
+      resources:
+        limits:
+          memory: 786M
+        reservations:
+          memory: 786M
+#    networks:
+#      - microservices-net
 
   kafka:
-    image: confluentinc/cp-kafka:latest
-    container_name: kafka
-    environment:
-      KAFKA_OFFSET_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+    image: wurstmeister/kafka
     ports:
       - 9092:9092
-    depends_on:
-      - zookeeper
-    networks:
-      - microservices-net
+    expose:
+      - 9092
+    container_name: kafka
+    environment:
+      - KAFKA_ADVERTISED_HOST_NAME= 127.0.0.1
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+    deploy:
+      resources:
+        limits:
+          memory: 1.5G
+        reservations:
+          memory: 786M
+#    networks:
+#      - microservices-net
 
   postgres:
     container_name: pg_sql
