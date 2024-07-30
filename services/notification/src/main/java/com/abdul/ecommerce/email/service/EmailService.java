@@ -9,9 +9,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.mail.javamail.JavaMailSender;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -20,11 +21,17 @@ import org.thymeleaf.spring6.SpringTemplateEngine;
 
 @Slf4j
 @Service
-@RequiredArgsConstructor
 public class EmailService {
 
+    @Qualifier("mailDevSender")
     private final JavaMailSender mailSender;
+
     private final SpringTemplateEngine templateEngine;
+
+    public EmailService(@Qualifier("mailDevSender") JavaMailSender mailSender, SpringTemplateEngine templateEngine) {
+        this.mailSender = mailSender;
+        this.templateEngine = templateEngine;
+    }
 
     @Async
     public void sendPaymentConfirmationEmail(
