@@ -15,8 +15,6 @@ services:
           memory: 786M
         reservations:
           memory: 786M
-  #    networks:
-  #      - microservices-net
 
   zookeeper:
     image: wurstmeister/zookeeper
@@ -29,8 +27,8 @@ services:
           memory: 786M
         reservations:
           memory: 786M
-#    networks:
-#      - microservices-net
+    networks:
+      - microservices-net
 
   kafka:
     image: wurstmeister/kafka
@@ -48,8 +46,8 @@ services:
           memory: 1.5G
         reservations:
           memory: 786M
-#    networks:
-#      - microservices-net
+    networks:
+      - microservices-net
 
   postgres:
     container_name: pg_sql

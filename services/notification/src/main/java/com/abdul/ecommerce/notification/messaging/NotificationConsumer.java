@@ -20,7 +20,8 @@ public class NotificationConsumer {
     private final NotificationRepository notificationRepository;
     private final EmailService emailService;
 
-    @KafkaListener(topics = "payments", groupId = "paymentGroup")
+    @KafkaListener(topics = "payments", groupId = "paymentGroup",
+            containerFactory = "paymentKafkaListenerContainerFactory")
     public void consumePaymentConfirmationNotification(PaymentConfirmation paymentConfirmation)
             throws MessagingException {
         log.info("Consuming kafka produced message for topic payments: {}", paymentConfirmation);
@@ -40,7 +41,8 @@ public class NotificationConsumer {
         );
     }
 
-    @KafkaListener(topics = "orders", groupId = "orderGroup")
+    @KafkaListener(topics = "orders", groupId = "orderGroup",
+            containerFactory = "orderKafkaListenerContainerFactory")
     public void consumeOrderConfirmationNotification(OrderConfirmation orderConfirmation) throws MessagingException {
         log.info("Consuming kafka produced message for orders: {}", orderConfirmation);
         notificationRepository.save(
